@@ -40,5 +40,6 @@ namespace TrainingManagementSystem.Models
 
         [Required(ErrorMessage = "Date of Birth should not be empty")]
         public DateTime DateBorn { get; set; }
+
     }
 }

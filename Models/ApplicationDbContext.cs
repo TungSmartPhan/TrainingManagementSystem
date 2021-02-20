@@ -12,7 +12,9 @@ namespace TrainingManagementSystem.Models
         }
 
         public DbSet<TraineeInfo> TraineeDb { get; set; }
-
+        public DbSet<Course> CourseDb { get; set; }
+        public DbSet<Category> CategoryDb { get; set; }
+        public DbSet<Topic> TopicDb { get; set; }
 
         public static ApplicationDbContext Create()
         {
