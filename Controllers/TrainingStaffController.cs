@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TrainingManagementSystem.Models;
+using TrainingManagementSystem.ViewModels;
 
 namespace TrainingManagementSystem.Controllers
 {
@@ -30,26 +31,38 @@ namespace TrainingManagementSystem.Controllers
 
 
         // GET: Tungs/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new TraineeCourseViewModel()
+            {
+                COURSE = _context.CourseDb.ToList()
+            };
+            return View(viewModel);
         }
 
         // POST: Tungs/Create
         [HttpPost]
         public ActionResult Create(TraineeInfo trainee)
         {
-            var traineeCreated = new TraineeInfo();
-            traineeCreated.Age = trainee.Age;
-            traineeCreated.IdStudent = trainee.IdStudent;
-            traineeCreated.TraineeAccount = trainee.TraineeAccount;
-            traineeCreated.TOEICScore = trainee.TOEICScore;
-            traineeCreated.Location = trainee.Location;
-            traineeCreated.Description = trainee.Description;
-            traineeCreated.DateBorn = trainee.DateBorn;
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
 
-
-            _context.TraineeDb.Add(traineeCreated);            
+            var traineeCreated = new TraineeInfo
+            {
+                Age = trainee.Age,
+                IdStudent = trainee.IdStudent,
+                TraineeAccount = trainee.TraineeAccount,
+                TOEICScore = trainee.TOEICScore,
+                Location = trainee.Location,
+                Description = trainee.Description,
+                DateBorn = trainee.DateBorn,
+                CourseId = trainee.CourseId,
+            };
+            
+            _context.TraineeDb.Add(traineeCreated);
             _context.SaveChanges();
 
             return RedirectToAction("Index");

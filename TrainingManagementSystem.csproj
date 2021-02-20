@@ -218,6 +218,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="ViewModels\TraineeCourseViewModel.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\TraineeInfo.cs" />
@@ -286,9 +287,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\TrainingStaff\Index.cshtml" />
+    <Content Include="Views\TrainingStaff\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels2\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
