@@ -15,6 +15,10 @@ namespace TrainingManagementSystem.Models
         public DbSet<Course> CourseDb { get; set; }
         public DbSet<Category> CategoryDb { get; set; }
         public DbSet<Topic> TopicDb { get; set; }
+        public DbSet<TrainingStaffInfo> TrainingStaffDb { get; set; }
+        public DbSet<TrainerInfo> TrainerDb { get; set; }
+
+
 
         public static ApplicationDbContext Create()
         {

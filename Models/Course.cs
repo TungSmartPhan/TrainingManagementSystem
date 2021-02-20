@@ -14,5 +14,8 @@ namespace TrainingManagementSystem.Models
 
         [Required(ErrorMessage = "Course Name should not be empty")]
         public string CourseName { get; set; }
+
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }

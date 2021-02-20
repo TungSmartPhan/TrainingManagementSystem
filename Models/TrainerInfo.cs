@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TrainingManagementSystem.Models
 {
-    public class TraineeInfo
+    public class TrainerInfo
     {
         [Key]
         public int Id { get; set; }
@@ -20,12 +20,12 @@ namespace TrainingManagementSystem.Models
         public int Age { get; set; }
 
 
-        [Required(ErrorMessage = "ID Student should not be empty")]
-        public string IdStudent { get; set; }
+        [Required(ErrorMessage = "Trainer ID should not be empty")]
+        public string TrainerID { get; set; }
 
 
-        [Required(ErrorMessage = "Trainee Account should not be empty")]
-        public string TraineeAccount { get; set; }
+        [Required(ErrorMessage = "TrainerAccount Account should not be empty")]
+        public string TrainerAccount { get; set; }
         public string Password { get; set; }
 
 
@@ -40,9 +40,5 @@ namespace TrainingManagementSystem.Models
 
         [Required(ErrorMessage = "Date of Birth should not be empty")]
         public DateTime DateBorn { get; set; }
-
-        public int CourseId { get; set; }
-        public Course Course { get; set; }
-
     }
 }

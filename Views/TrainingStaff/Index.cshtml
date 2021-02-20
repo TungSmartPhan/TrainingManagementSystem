@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TrainingManagementSystem.Models.TraineeInfo>
+@{
+    ViewBag.Title = "Introduction Page";
+}
+
+<h2 class="blink_me"> Wellcome Everyone to Education System </h2>
+
+@*------------------CREATE BUTTON And SEARCH--------------------*@
+
+<div class="btn btn-dark createbutton">
+    <div class="infor-createbutton">
+        <span>Create Trainees Profile Account</span>
+        <span>^^</span>
+
+    </div>
+
+    @using (Html.BeginForm("Index", "TrainingStaff", "POST"))
+    {
+        <div class="form-group">
+            @Html.Label("Search Trainee by Name")
+            @Html.TextBox("searchString", null, new { @class = "form-control" })
+            <button type="submit" class="btn btn-link">Search</button>
+        </div>
+    }
+
+    @Html.ActionLink("Create Profile", "Create", "TrainingStaff", null, new { @class = "btn btn-default" })
+</div>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Id Student</th>
+            <th scope="col">Student Account</th>
+            <th scope="col">TOEICScore</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.IdStudent</td>
+                <td>@item.TraineeAccount</td>
+                <td>@item.TOEICScore</td>
+                <td>@item.Description</td>
+                <td>@item.DateBorn.ToString()</td>
+
+                <td class="Action">
+                    @Html.ActionLink("Edit Trainee", "Edit", "TrainingStaff",
+                                      new { id = item.Id },
+                                      new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete Trainee", "Delete", "TrainingStaff",
+                                      new { id = item.Id },
+                                      new { @class = "btn btn-danger" })
+                    @Html.ActionLink("View Details", "Details", "TrainingStaff",
+                                      new { id = item.Id },
+                                      new { @class = "btn btn-primary" })
+                    @Html.ActionLink("View Courses", "Courses", "TrainingStaff",
+                                      new { id = item.Id },
+                                      new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
